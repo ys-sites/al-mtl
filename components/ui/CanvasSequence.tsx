@@ -51,11 +51,8 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     const vRatio = window.innerHeight / img.height;
     const ratio = Math.max(hRatio, vRatio);
     
-    // Shift image slightly on mobile to align properly (reveal more of the left side where the hood is)
-    let centerShift_x = (window.innerWidth - img.width * ratio) / 2;
-    if (window.innerWidth < 768) {
-      centerShift_x = (window.innerWidth - img.width * ratio) * 0.3; // 30% offset moves image right, revealing left side
-    }
+    // Center the image on all viewport sizes
+    const centerShift_x = (window.innerWidth - img.width * ratio) / 2;
 
     const centerShift_y = (window.innerHeight - img.height * ratio) / 2;
 
