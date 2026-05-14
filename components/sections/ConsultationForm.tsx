@@ -44,10 +44,14 @@ export default function ConsultationForm() {
         })
       });
       
-      if (response.ok) {
+      const result = await response.json();
+      console.log("FormSubmit response:", result);
+
+      if (response.ok && result.success === "true") {
         setStatus('success');
       } else {
-        throw new Error('Failed to submit form');
+        console.error("FormSubmit error:", result.message || "Unknown error");
+        throw new Error(result.message || 'Failed to submit form');
       }
     } catch (error) {
       console.error("Submission failed:", error);
