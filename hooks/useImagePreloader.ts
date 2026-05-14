@@ -12,10 +12,16 @@ export function useImagePreloader(frameCount: number, pathPrefix: string) {
       const img = new Image();
       const paddedIndex = i.toString().padStart(4, '0');
       img.src = `${pathPrefix}${paddedIndex}.jpg`;
-      img.onload = () => {
+      
+      img.decode().then(() => {
         loadCount++;
         setLoaded(Math.round((loadCount / frameCount) * 100));
-      };
+      }).catch((e) => {
+        // Fallback for decoding errors
+        loadCount++;
+        setLoaded(Math.round((loadCount / frameCount) * 100));
+      });
+      
       loadedImages.push(img);
     }
     setImages(loadedImages);

@@ -7,25 +7,35 @@ import CanvasSequence from '@/components/ui/CanvasSequence';
 const FRAME_COUNT = 110; // Updated to actual frame count
 const FRAME_PATH = '/frames/frame_';
 
+import { useLanguage } from '@/lib/LanguageContext';
+
 export default function HeroScroll() {
   const { images, progress } = useImagePreloader(FRAME_COUNT, FRAME_PATH);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
   const text1Opacity = useTransform(scrollYProgress, [0, 0.15, 0.2], [1, 1, 0]);
-  const text2Opacity = useTransform(scrollYProgress, [0.2, 0.25, 0.35, 0.4], [0, 1, 1, 0]);
-  const text3Opacity = useTransform(scrollYProgress, [0.4, 0.45, 0.55, 0.6], [0, 1, 1, 0]);
+  const text1Y = useTransform(scrollYProgress, [0, 0.15, 0.2], [0, 0, -50]);
+
+  const text2Opacity = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.4], [0, 1, 1, 0]);
+  const text2Y = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.4], [50, 0, 0, -50]);
+
+  const text3Opacity = useTransform(scrollYProgress, [0.35, 0.45, 0.55, 0.6], [0, 1, 1, 0]);
+  const text3Y = useTransform(scrollYProgress, [0.35, 0.45, 0.55, 0.6], [50, 0, 0, -50]);
+
   const text4Opacity = useTransform(scrollYProgress, [0.75, 0.85, 1], [0, 1, 1]);
+  const text4Y = useTransform(scrollYProgress, [0.75, 0.85, 1], [50, 0, 0]);
 
   if (progress < 100) {
     return (
       <div className="h-screen bg-brand-bg flex flex-col 
         items-center justify-center gap-4">
         <p className="font-mono text-brand-gold tracking-widest-lux text-sm">
-          LOADING YOUR TRANSFORMATION
+          {t('hero.loading')}
         </p>
         <div className="w-64 h-px bg-white/10">
           <div
@@ -43,52 +53,52 @@ export default function HeroScroll() {
       <CanvasSequence images={images} frameCount={FRAME_COUNT} />
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="sticky top-0 h-screen flex items-center justify-center">
+        <div className="sticky top-0 h-screen flex items-center justify-start">
 
           {/* Phase 1: 0-20% */}
-          <motion.div style={{ opacity: text1Opacity }}
-            className="absolute text-center px-8">
+          <motion.div style={{ opacity: text1Opacity, y: text1Y }}
+            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
             <h1 className="font-serif text-6xl md:text-8xl text-brand-white
               tracking-widest-lux leading-tight">
-              TRANSFORM YOUR<br />
-              <span className="text-gradient-gold">KITCHEN</span>
+              {t('hero.transform')}<br />
+              <span className="text-gradient-gold">{t('hero.kitchen')}</span>
             </h1>
           </motion.div>
 
           {/* Phase 2: 20-40% */}
-          <motion.div style={{ opacity: text2Opacity }}
-            className="absolute text-center px-8">
+          <motion.div style={{ opacity: text2Opacity, y: text2Y }}
+            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
             <p className="font-serif text-3xl md:text-5xl 
               text-brand-white/90 italic">
-              Luxury craftsmanship, built to last
+              {t('hero.luxury')}
             </p>
           </motion.div>
 
           {/* Phase 3: 40-60% */}
-          <motion.div style={{ opacity: text3Opacity }}
-            className="absolute text-center px-8">
+          <motion.div style={{ opacity: text3Opacity, y: text3Y }}
+            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
             <p className="font-serif text-4xl md:text-6xl italic">
               <span className="text-gradient-gold">
-                Navy. Brass. Perfection.
+                {t('hero.navy')}
               </span>
             </p>
           </motion.div>
 
           {/* Phase 4: 75-100% Final CTA */}
-          <motion.div style={{ opacity: text4Opacity }}
-            className="absolute text-center px-8 pointer-events-auto">
+          <motion.div style={{ opacity: text4Opacity, y: text4Y }}
+            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8 pointer-events-auto">
             <p className="font-serif text-5xl md:text-7xl text-brand-white mb-4">
-              YOU DESERVE IT
+              {t('hero.deserve')}
             </p>
             <p className="font-sans text-brand-white/60 tracking-widest-lux
               text-sm mb-8 uppercase">
-              Ready to start your transformation?
+              {t('hero.ready')}
             </p>
             <button className="border border-brand-gold text-brand-gold
               font-mono tracking-widest-lux px-12 py-4
               hover:bg-brand-navy hover:text-brand-gold transition-all duration-500 pointer-events-auto"
               aria-label="Get a free quote for your kitchen renovation">
-              GET A FREE QUOTE
+              {t('hero.quote')}
             </button>
           </motion.div>
 

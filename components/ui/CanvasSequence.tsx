@@ -23,7 +23,8 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', {
       alpha: false,
-      colorSpace: 'display-p3'  // Maximum navy + brass vibrancy on Mac
+      colorSpace: 'display-p3', // Maximum navy + brass vibrancy on Mac
+      desynchronized: true      // Reduces latency/stuttering
     });
     if (!ctx) return;
 
@@ -32,6 +33,10 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     ctx.scale(dpr, dpr);
+    
+    // Maximize rendering quality
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
 
     // object-fit: cover math
     const img = images[index];

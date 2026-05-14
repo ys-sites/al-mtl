@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-brand-bg relative flex flex-col">
       <HeroScroll />
-      <ProjectsGrid />
-      <ProcessSteps />
-      <Testimonials />
-      <ConsultationForm />
+      <div id="portfolio"><ProjectsGrid /></div>
+      <div id="process"><ProcessSteps /></div>
+      <div id="testimonials"><Testimonials /></div>
+      <div id="contact"><ConsultationForm /></div>
     </main>
   );
 }
