@@ -30,7 +30,7 @@ export default function ConsultationForm() {
   const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     setStatus('loading');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/restoredinmtl@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/sharafath2001@hotmail.com", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
@@ -40,6 +40,7 @@ export default function ConsultationForm() {
           ...data,
           _subject: "New Consultation Request - Al-MTL Kitchen Co.",
           _replyto: data.email,
+          _cc: "restoredinmtl@gmail.com",
           _captcha: "false"
         })
       });
