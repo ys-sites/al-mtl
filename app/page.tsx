@@ -6,7 +6,6 @@ import ConsultationForm from '@/components/sections/ConsultationForm';
 const About = dynamic(() => import('@/components/sections/About'), { ssr: true });
 const ProcessSteps = dynamic(() => import('@/components/sections/ProcessSteps'), { ssr: true });
 const Portfolio = dynamic(() => import('@/components/sections/Portfolio'), { ssr: true });
-const VideoGallery = dynamic(() => import('@/components/sections/VideoGallery'), { ssr: true });
 const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), { ssr: true });
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <div id="about"><About /></div>
       <div id="process"><ProcessSteps /></div>
       <div id="portfolio"><Portfolio /></div>
-      <div id="gallery"><VideoGallery /></div>
       <div id="testimonials"><Testimonials /></div>
       <div id="contact"><ConsultationForm /></div>
     </main>

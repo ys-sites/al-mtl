@@ -30,8 +30,23 @@ export default function ConsultationForm() {
   const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     setStatus('loading');
     try {
-      console.log("Form Data Submitted:", data);
-      setTimeout(() => setStatus('success'), 1500);
+      const response = await fetch("https://formsubmit.co/ajax/sharafath2001@hotmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: "New Consultation Request - Renovare Kitchen Co."
+        })
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        throw new Error('Failed to submit form');
+      }
     } catch (error) {
       console.error("Submission failed:", error);
       setStatus('error');
