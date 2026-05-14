@@ -37,8 +37,7 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <div className="flex-shrink-0 cursor-pointer flex items-center gap-3" onClick={() => scrollTo('home')}>
-          <img src="/logo_renovare.png" alt="Renovare Logo" className="h-10 w-auto rounded-sm" />
-          <span className="font-serif text-2xl font-bold tracking-wider text-brand-white hidden sm:block">
+          <span className="font-serif text-2xl font-bold tracking-wider text-brand-white">
             RENOVARE<span className="text-brand-gold">.</span>
           </span>
         </div>
