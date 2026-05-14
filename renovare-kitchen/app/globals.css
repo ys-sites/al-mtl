@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #0c0c0c;
+  --text-color: #ffffff;
+  --navy: #1B2A4A;
+  --gold: #C9A84C;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+.glass-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.navy-panel {
+  backdrop-filter: blur(12px);
+  background: rgba(27,42,74,0.2);
+  border: 1px solid rgba(27,42,74,0.3);
+}
+.text-gradient-gold {
+  background: linear-gradient(to right, #C9A84C, #E8D5A3);
+  -webkit-background-clip: text;
+  color: transparent;
+}
