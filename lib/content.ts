@@ -50,7 +50,7 @@ export const heroCopy = {
 export const companyDetails = {
   name: "Renovare Kitchen Co.",
   address: "123 Kitchen Blvd, Montreal, QC",
-  phone: "(514) 555-0198",
+  phone: "514-451-9786",
   email: "contact@renovarekitchen.com",
   showroomHours: "Mon-Fri: 9am - 5pm"
 };

@@ -6,6 +6,7 @@ import './globals.css';
 
 import { LanguageProvider } from '@/lib/LanguageContext';
 import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
 
 export default function RootLayout({ 
   children 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Navigation />
           {children}
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

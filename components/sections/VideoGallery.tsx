@@ -100,9 +100,9 @@ export default function VideoGallery() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy/50 text-brand-gold backdrop-blur-md font-mono text-sm mb-6 border border-brand-gold/20 tracking-widest uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white backdrop-blur-md font-sans text-sm mb-6 border border-white/10 shadow-xl"
           >
-            <Instagram size={16} /> {t('gallery.badge')}
+            <Instagram size={16} /> {t('gallery.badge') || "Follow our journey"}
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -203,28 +203,11 @@ function VideoCard({ video, index }: { video: any, index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
-      className="bg-brand-navy/50 backdrop-blur-md rounded-2xl overflow-hidden border border-brand-white/10 group hover:border-brand-gold/50 transition-colors shadow-2xl"
+      className="relative rounded-[2rem] overflow-hidden border border-white/10 group hover:border-white/30 transition-colors shadow-2xl aspect-[9/16] bg-brand-dark cursor-pointer"
     >
-      {/* Header - Clickable to IG */}
-      <a 
-        href={video.igLink} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="flex items-center justify-between p-4 border-b border-brand-white/10 hover:bg-brand-white/5 transition-colors cursor-pointer gap-2"
-      >
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-gold to-brand-lightgold p-[2px] shrink-0">
-            <div className="w-full h-full bg-brand-navy rounded-full flex items-center justify-center">
-              <Instagram size={14} className="text-brand-white" />
-            </div>
-          </div>
-          <span className="text-brand-white font-serif text-sm truncate">{video.title}</span>
-        </div>
-      </a>
-
-      {/* Video Container */}
+      {/* Video / Poster */}
       <div 
-        className="relative aspect-[9/16] bg-brand-dark cursor-pointer overflow-hidden"
+        className="absolute inset-0 w-full h-full"
         onClick={togglePlay}
       >
         {video.videoUrl ? (
@@ -232,7 +215,7 @@ function VideoCard({ video, index }: { video: any, index: number }) {
             ref={videoRef}
             src={video.videoUrl}
             poster={video.poster}
-            className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+            className="w-full h-full object-cover transition-all duration-700"
             loop
             playsInline
             preload="none"
@@ -242,20 +225,49 @@ function VideoCard({ video, index }: { video: any, index: number }) {
         ) : (
           <img 
             src={video.poster}
-            className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+            className="w-full h-full object-cover transition-all duration-700"
             alt={video.title}
           />
         )}
         
-        {/* Play Button Overlay */}
-        {!isPlaying && (
-          <div className="absolute inset-0 flex items-center justify-center bg-brand-dark/30 group-hover:bg-brand-dark/10 transition-colors">
-            <div className="w-16 h-16 rounded-full bg-brand-gold/80 backdrop-blur-md flex items-center justify-center border border-brand-lightgold transform group-hover:scale-110 transition-transform">
-              <Play size={24} className="text-brand-navy ml-1" fill="currentColor" />
+        {/* Dark gradient overlay for top and bottom readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/40 pointer-events-none" />
+      </div>
+
+      {/* Absolute Header Overlay */}
+      <a 
+        href={video.igLink} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="absolute top-4 inset-x-4 z-20 flex items-center justify-between p-2 pl-3 pr-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 transition-colors cursor-pointer"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] p-[1.5px] shrink-0">
+            <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
+              <Instagram size={10} className="text-white" />
             </div>
           </div>
-        )}
-      </div>
+          <span className="text-white font-sans font-medium text-xs truncate max-w-[80px]">
+            {video.title.substring(0, 5)}...
+          </span>
+        </div>
+        <div className="bg-white/10 hover:bg-white/20 transition-colors px-3 py-1.5 rounded-full text-[10px] font-sans text-white border border-white/5">
+          View on Instagram
+        </div>
+      </a>
+      
+      {/* Play Button Overlay */}
+      {!isPlaying && (
+        <div 
+          className="absolute inset-0 z-10 flex items-center justify-center group-hover:bg-black/10 transition-colors"
+          onClick={togglePlay}
+        >
+          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 transform group-hover:scale-110 transition-transform">
+            <Play size={24} className="text-white ml-1" fill="currentColor" />
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
