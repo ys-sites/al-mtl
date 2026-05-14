@@ -23,13 +23,12 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d', {
       alpha: false,
-      colorSpace: 'display-p3', // Maximum navy + brass vibrancy on Mac
       desynchronized: true      // Reduces latency/stuttering
     });
     if (!ctx) return;
 
-    // High-DPI Retina support
-    const dpr = window.devicePixelRatio || 1;
+    // High-DPI Retina support, cap at 2 for performance/memory on mobile
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = window.innerWidth * dpr;
     canvas.height = window.innerHeight * dpr;
     ctx.scale(dpr, dpr);
