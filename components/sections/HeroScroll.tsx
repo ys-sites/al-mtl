@@ -57,8 +57,8 @@ export default function HeroScroll() {
 
           {/* Phase 1: 0-20% */}
           <motion.div style={{ opacity: text1Opacity, y: text1Y }}
-            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
-            <h1 className="font-serif text-6xl md:text-8xl text-brand-white
+            className="absolute left-6 md:left-24 text-left max-w-3xl pr-6">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-8xl text-brand-white
               tracking-widest-lux leading-tight">
               {t('hero.transform')}<br />
               <span className="text-gradient-gold">{t('hero.kitchen')}</span>
@@ -67,17 +67,17 @@ export default function HeroScroll() {
 
           {/* Phase 2: 20-40% */}
           <motion.div style={{ opacity: text2Opacity, y: text2Y }}
-            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
-            <p className="font-serif text-3xl md:text-5xl 
-              text-brand-white/90 italic">
+            className="absolute left-6 md:left-24 text-left max-w-3xl pr-6">
+            <p className="font-serif text-2xl sm:text-3xl md:text-5xl 
+              text-brand-white/90 italic leading-snug">
               {t('hero.luxury')}
             </p>
           </motion.div>
 
           {/* Phase 3: 40-60% */}
           <motion.div style={{ opacity: text3Opacity, y: text3Y }}
-            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8">
-            <p className="font-serif text-4xl md:text-6xl italic">
+            className="absolute left-6 md:left-24 text-left max-w-3xl pr-6">
+            <p className="font-serif text-3xl sm:text-4xl md:text-6xl italic leading-snug">
               <span className="text-gradient-gold">
                 {t('hero.navy')}
               </span>
@@ -86,16 +86,16 @@ export default function HeroScroll() {
 
           {/* Phase 4: 75-100% Final CTA */}
           <motion.div style={{ opacity: text4Opacity, y: text4Y }}
-            className="absolute left-8 md:left-24 text-left max-w-3xl pr-8 pointer-events-auto">
-            <p className="font-serif text-5xl md:text-7xl text-brand-white mb-4">
+            className="absolute left-6 md:left-24 text-left max-w-3xl pr-6 pointer-events-auto">
+            <p className="font-serif text-4xl sm:text-5xl md:text-7xl text-brand-white mb-4 leading-tight">
               {t('hero.deserve')}
             </p>
             <p className="font-sans text-brand-white/60 tracking-widest-lux
-              text-sm mb-8 uppercase">
+              text-xs sm:text-sm mb-8 uppercase">
               {t('hero.ready')}
             </p>
             <button className="border border-brand-gold text-brand-gold
-              font-mono tracking-widest-lux px-12 py-4
+              font-mono tracking-widest-lux px-8 sm:px-12 py-3 sm:py-4 text-xs sm:text-sm
               hover:bg-brand-navy hover:text-brand-gold transition-all duration-500 pointer-events-auto"
               aria-label="Get a free quote for your kitchen renovation">
               {t('hero.quote')}
