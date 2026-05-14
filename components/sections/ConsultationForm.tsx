@@ -13,7 +13,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 const consultSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(2, "Last name is required"),
-  address: z.string().min(5, "Home address is required"),
+  city: z.string().min(2, "City is required"),
   email: z.string().email("Invalid email"),
   phone: z.string().min(10, "Valid phone required"),
   interestedIn: z.string().min(2, "Please select an option")
@@ -30,7 +30,7 @@ export default function ConsultationForm() {
   const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     setStatus('loading');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sharafath2001@hotmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/restoredinmtl@gmail.com", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
@@ -150,13 +150,13 @@ export default function ConsultationForm() {
               </div>
               
               <div>
-                <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.address')}</label>
-                <input 
-                  {...register("address")}
-                  className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30" 
-                  placeholder="Montreal, QC" 
+                <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.city')}</label>
+                <input
+                  {...register("city")}
+                  className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30"
+                  placeholder="Montreal"
                 />
-                {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address.message as string}</p>}
+                {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city.message as string}</p>}
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
