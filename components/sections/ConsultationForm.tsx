@@ -6,6 +6,7 @@ import * as z from 'zod';
 import { motion } from 'framer-motion';
 import ShinyText from '@/components/ui/ShinyText';
 import BlurText from '@/components/ui/BlurText';
+import BorderGlow from '@/components/ui/BorderGlow';
 import { CheckCircle, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -76,9 +77,21 @@ export default function ConsultationForm() {
           </div>
         </div>
         
-        <div className="bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white/50 relative overflow-hidden group/form">
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl opacity-50 group-hover/form:scale-110 transition-transform duration-1000"></div>
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-navy/5 rounded-full blur-3xl opacity-50 group-hover/form:scale-110 transition-transform duration-1000"></div>
+        <BorderGlow
+          edgeSensitivity={30}
+          glowColor="44 54 54"
+          backgroundColor="rgba(255, 255, 255, 0.9)"
+          borderRadius={40}
+          glowRadius={40}
+          glowIntensity={1.0}
+          coneSpread={25}
+          animated={true}
+          colors={['#C9A84C', '#0F172A', '#E5C87A']}
+          className="w-full relative group/form shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] z-10"
+        >
+          <div className="p-8 md:p-12 backdrop-blur-xl relative overflow-hidden w-full h-full rounded-[40px]">
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl opacity-50 group-hover/form:scale-110 transition-transform duration-1000"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-navy/5 rounded-full blur-3xl opacity-50 group-hover/form:scale-110 transition-transform duration-1000"></div>
           
           {status === 'success' ? (
             <motion.div 
@@ -186,7 +199,8 @@ export default function ConsultationForm() {
               </p>
             </form>
           )}
-        </div>
+          </div>
+        </BorderGlow>
       </div>
     </section>
   );
