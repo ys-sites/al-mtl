@@ -3,6 +3,8 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
+import ShinyText from '@/components/ui/ShinyText';
+import BlurText from '@/components/ui/BlurText';
 
 const BACKGROUND_IMAGES = [
   "/frames/ezgif-frame-030.jpg", "/frames/ezgif-frame-060.jpg", "/frames/ezgif-frame-090.jpg", "/frames/ezgif-frame-120.jpg", 
@@ -97,7 +99,7 @@ export default function VideoGallery() {
       <div className="relative z-20 max-w-6xl mx-auto px-6 w-full">
         <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-white backdrop-blur-md font-sans text-sm mb-6 border border-white/10 shadow-xl"
@@ -105,23 +107,28 @@ export default function VideoGallery() {
             <Instagram size={16} /> {t('gallery.badge') || "Follow our journey"}
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-serif text-brand-white mb-4 tracking-tight"
+            className="text-4xl md:text-5xl font-serif mb-4 tracking-tight block"
           >
-            {t('gallery.title')}
+            <ShinyText
+              text={t('gallery.title')}
+              color="#ffffff"
+              shineColor="#C9A84C"
+              speed={3}
+            />
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-brand-white/60 max-w-2xl mx-auto text-lg font-sans"
-          >
-            {t('gallery.subtitle')}
-          </motion.p>
+          <div className="flex justify-center">
+            <BlurText
+              text={t('gallery.subtitle')}
+              delay={100}
+              animateBy="words"
+              direction="bottom"
+              className="text-brand-white/60 max-w-2xl mx-auto text-lg font-sans"
+            />
+          </div>
         </div>
 
         {/* Video Display */}
@@ -199,7 +206,7 @@ function VideoCard({ video, index }: { video: any, index: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 * index }}

@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Image as ImageIcon } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
+import ShinyText from '@/components/ui/ShinyText';
+import BlurText from '@/components/ui/BlurText';
 
 const PORTFOLIO_IMAGES = [
   { id: 1, src: "/frames/ezgif-frame-010.jpg", title: "Modern Minimalist", span: "md:col-span-2 md:row-span-2" },
@@ -23,7 +25,7 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-navy/50 text-brand-gold backdrop-blur-md font-mono text-sm mb-6 border border-brand-gold/20 tracking-widest uppercase"
@@ -31,30 +33,35 @@ export default function Portfolio() {
             <ImageIcon size={16} /> {t('portfolio.badge')}
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-serif text-brand-white mb-4 tracking-tight"
+            className="text-4xl md:text-5xl font-serif mb-4 tracking-tight block"
           >
-            {t('portfolio.title')}
+            <ShinyText
+              text={t('portfolio.title')}
+              color="#ffffff"
+              shineColor="#C9A84C"
+              speed={3}
+            />
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-brand-white/60 max-w-2xl mx-auto text-lg font-sans"
-          >
-            {t('portfolio.subtitle')}
-          </motion.p>
+          <div className="flex justify-center">
+            <BlurText
+              text={t('portfolio.subtitle')}
+              delay={100}
+              animateBy="words"
+              direction="bottom"
+              className="text-brand-white/60 max-w-2xl mx-auto text-lg font-sans"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[250px] gap-4 md:gap-6">
           {PORTFOLIO_IMAGES.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

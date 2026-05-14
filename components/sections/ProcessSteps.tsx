@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { steps } from '@/lib/content';
 import { useLanguage } from '@/lib/LanguageContext';
+import ShinyText from '@/components/ui/ShinyText';
 
 export default function ProcessSteps() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,12 +19,19 @@ export default function ProcessSteps() {
     <section ref={containerRef} className="py-32 px-6 bg-brand-navy relative z-10 overflow-hidden">
       <div className="max-w-4xl mx-auto relative">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="font-serif text-5xl md:text-7xl text-brand-gold mb-6">{t('process.title')}</h2>
+          <h2 className="font-serif text-5xl md:text-7xl mb-6 block">
+            <ShinyText
+              text={t('process.title')}
+              color="#ffffff"
+              shineColor="#C9A84C"
+              speed={3}
+            />
+          </h2>
           <p className="font-sans text-brand-white/80 max-w-xl mx-auto text-lg">
             {t('process.desc')}
           </p>
@@ -45,9 +53,9 @@ export default function ProcessSteps() {
             return (
               <motion.div 
                 key={step.number}
-                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className={`relative flex flex-col md:flex-row gap-8 items-start md:items-center ${isEven ? 'md:flex-row-reverse' : ''}`}
               >

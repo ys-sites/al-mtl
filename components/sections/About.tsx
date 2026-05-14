@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { aboutContent } from '@/lib/content';
 import { useLanguage } from '@/lib/LanguageContext';
+import ShinyText from '@/components/ui/ShinyText';
 
 export default function About() {
   const { t } = useLanguage();
@@ -12,9 +13,9 @@ export default function About() {
         
         {/* Left Side: Text Content */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8 }}
           className="md:w-1/2 flex flex-col gap-6"
         >
@@ -22,7 +23,12 @@ export default function About() {
             {t('nav.about')}
           </span>
           <h2 className="font-serif text-5xl md:text-6xl text-brand-navy leading-tight">
-            {aboutContent.title}
+            <ShinyText
+              text={aboutContent.title}
+              color="#0F172A"
+              shineColor="#C9A84C"
+              speed={3}
+            />
           </h2>
           <h3 className="font-sans text-brand-navy/80 text-xl font-medium">
             {aboutContent.subtitle}
@@ -37,9 +43,9 @@ export default function About() {
 
         {/* Right Side: Features Grid */}
         <motion.div 
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6"
         >

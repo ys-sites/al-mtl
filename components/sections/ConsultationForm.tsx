@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { motion } from 'framer-motion';
 import ShinyText from '@/components/ui/ShinyText';
+import BlurText from '@/components/ui/BlurText';
 import { CheckCircle, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -64,15 +65,15 @@ export default function ConsultationForm() {
               speed={3}
             />
           </h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }} 
-            whileInView={{ opacity: 1, y: 0 }} 
-            viewport={{ once: true }} 
-            transition={{ delay: 0.3 }} 
-            className="text-brand-navy/70 text-lg font-sans"
-          >
-            {t('contact.subtitle')}
-          </motion.p>
+          <div className="flex justify-center">
+            <BlurText
+              text={t('contact.subtitle')}
+              delay={100}
+              animateBy="words"
+              direction="bottom"
+              className="text-brand-navy/70 text-lg font-sans"
+            />
+          </div>
         </div>
         
         <div className="bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white/50 relative overflow-hidden group/form">
