@@ -39,8 +39,8 @@ export default function Navigation() {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <button onClick={() => scrollTo('portfolio')} className="text-sm font-sans tracking-widest-lux text-brand-white/70 hover:text-brand-gold transition-colors uppercase">
-            {t('nav.portfolio')}
+          <button onClick={() => scrollTo('about')} className="text-sm font-sans tracking-widest-lux text-brand-white/70 hover:text-brand-gold transition-colors uppercase">
+            {t('nav.about')}
           </button>
           <button onClick={() => scrollTo('process')} className="text-sm font-sans tracking-widest-lux text-brand-white/70 hover:text-brand-gold transition-colors uppercase">
             {t('nav.process')}

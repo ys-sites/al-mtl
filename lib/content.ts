@@ -1,57 +1,22 @@
-export const projects = [
-  {
-    id: 1,
-    title: "The Navy Classic",
-    subtitle: "Our Signature Style",
-    description: "Navy shaker cabinets, brushed brass hardware, white quartz countertops, and a farmhouse sink. The kitchen that started it all.",
-    timeline: "3 weeks",
-    style: "Transitional",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Modern Minimalist",
-    subtitle: "Westmount",
-    description: "Floor-to-ceiling white lacquer cabinets, waterfall island in Calacatta marble, matte black fixtures throughout.",
-    timeline: "4 weeks",
-    style: "Modern",
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "French Provincial",
-    subtitle: "Outremont",
-    description: "Cream inset cabinetry with antique brass hardware, honed Carrara marble, and a La Cornue range.",
-    timeline: "5 weeks",
-    style: "Traditional",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Industrial Loft",
-    subtitle: "Mile End",
-    description: "Charcoal grey flat-front cabinets, raw concrete countertops, exposed steel shelving, and copper pendant lights.",
-    timeline: "3 weeks",
-    style: "Industrial",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Japandi Serenity",
-    subtitle: "NDG",
-    description: "White oak slab cabinets, sage green island, honed soapstone countertops, and handmade ceramic pulls.",
-    timeline: "3 weeks",
-    style: "Japandi",
-    featured: false,
-  }
-];
+export const aboutContent = {
+  title: "About Renovare Kitchen Co.",
+  subtitle: "The Most Recommended Kitchen Renovators",
+  description1: "The kitchen space is an art in itself. The materials, constraints, aesthetics, every detail must be carefully selected and given thought. The end result is a masterpiece that offers both a space of culinary creativity and tranquility.",
+  description2: "For more than 20 years, we have approached each of our projects with the same spirit. Our design and management skills have delivered turnkey projects while ensuring a reliable execution every time. Our team of kitchen designers will ensure that your dream of a custom-made kitchen space becomes a reality.",
+  features: [
+    "Personalized Service",
+    "High-End 3D Presentation",
+    "Professional Installation",
+    "Renowned After-Sales Support"
+  ]
+};
 
 export const testimonials = [
   {
     id: 1,
     name: "Sophie Tremblay",
     location: "Westmount",
-    projectType: "Full Renovation — The Navy Classic",
+    projectType: "Full Renovation",
     rating: 5,
     quote: "They transformed our outdated kitchen into this stunning navy masterpiece. The brass details are everything we dreamed of.",
     photo: "/testimonials/sophie.jpg"
@@ -60,7 +25,7 @@ export const testimonials = [
     id: 2,
     name: "Marc Leblanc",
     location: "Outremont",
-    projectType: "Full Renovation — French Provincial",
+    projectType: "Full Renovation",
     rating: 5,
     quote: "The 3D render blew us away before they even started. The final result was even better. Flawless execution.",
     photo: "/testimonials/marc.jpg"
@@ -71,7 +36,7 @@ export const testimonials = [
     location: "NDG",
     projectType: "Custom Island + Countertops",
     rating: 5,
-    quote: "The Japandi kitchen of my dreams. They understood our vision immediately and delivered in under 3 weeks.",
+    quote: "The custom kitchen of my dreams. They understood our vision immediately and delivered in under 3 weeks.",
     photo: "/testimonials/jennifer.jpg"
   }
 ];
@@ -83,42 +48,42 @@ export const heroCopy = {
 };
 
 export const companyDetails = {
-  name: "Renovare Kitchen Co.", // From plan title
-  address: "[ADDRESS FROM REFERENCE.MD]",
-  phone: "[PHONE FROM REFERENCE.MD]",
-  email: "[EMAIL FROM REFERENCE.MD]",
-  showroomHours: "[HOURS FROM REFERENCE.MD]"
+  name: "Renovare Kitchen Co.",
+  address: "123 Kitchen Blvd, Montreal, QC",
+  phone: "(514) 555-0198",
+  email: "contact@renovarekitchen.com",
+  showroomHours: "Mon-Fri: 9am - 5pm"
 };
 
 export const steps = [
   {
     number: "01",
-    title: "Consultation",
-    subtitle: "We listen to your vision",
-    description: "In-home or virtual meeting to understand your style, needs, and goals."
+    title: "Initial Consultation",
+    subtitle: "Tell us about your project",
+    description: "Our kitchen designers will meet you in our showroom or at your home. We take the necessary time to understand your custom needs, style, and wishes from the very first sketch."
   },
   {
     number: "02",
-    title: "Design & 3D Render",
-    subtitle: "See it before we build it",
-    description: "Photorealistic 3D renders of your new kitchen before a single cabinet is touched."
+    title: "Concept & 3D Presentation",
+    subtitle: "See your ideas in high definition",
+    description: "We outline the project and guide you towards a functional and one-of-a-kind concept. Each project is accompanied by a high-end 3D presentation so you can see your colors and finishes before we begin."
   },
   {
     number: "03",
     title: "Material Selection",
-    subtitle: "Brass, quartz, and oak — curated",
-    description: "Visit our showroom to select your exact cabinet finish, hardware, countertop, and flooring."
+    subtitle: "A huge selection of brands & materials",
+    description: "Classic, contemporary, or modern. We show you a world of materials and textures—from marble, granite, and quartz countertops to custom sliding doors and cabinets."
   },
   {
     number: "04",
-    title: "Installation",
-    subtitle: "Precision craftsmanship",
-    description: "Our certified team installs your kitchen with military precision. Timeline: 2–4 weeks."
+    title: "Professional Installation",
+    subtitle: "Impeccable service & coordination",
+    description: "Our expertise in project management guarantees support from A to Z. Our team of professional installers takes the utmost care while respecting the budget and the established timeframe."
   },
   {
     number: "05",
-    title: "Final Reveal",
-    subtitle: "Your kitchen, perfected",
-    description: "Walk into your transformed space. We do not leave until every detail is flawless."
+    title: "After-Sales Support",
+    subtitle: "Dedicated to your standard",
+    description: "Looking to refine some details? Our renowned after-sales service ensures a project entirely dedicated to your image and your standard, without compromise."
   }
 ];

@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { steps } from '@/lib/content';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function ProcessSteps() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,6 +10,7 @@ export default function ProcessSteps() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
+  const { t } = useLanguage();
 
   const lineHeight = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
 
@@ -21,9 +23,9 @@ export default function ProcessSteps() {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="font-serif text-5xl md:text-7xl text-brand-gold mb-6">The Process</h2>
+          <h2 className="font-serif text-5xl md:text-7xl text-brand-gold mb-6">{t('process.title')}</h2>
           <p className="font-sans text-brand-white/80 max-w-xl mx-auto text-lg">
-            From initial sketch to final polish, we handle every detail with uncompromising standards.
+            {t('process.desc')}
           </p>
         </motion.div>
 
@@ -38,6 +40,8 @@ export default function ProcessSteps() {
         <div className="space-y-24">
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
+            // Get translation keys based on step number, e.g. "step.01.title"
+            const stepKeyPrefix = `step.${step.number}`;
             return (
               <motion.div 
                 key={step.number}
@@ -54,10 +58,10 @@ export default function ProcessSteps() {
 
                 <div className={`md:w-1/2 ${isEven ? 'md:pl-16' : 'md:pr-16 text-left md:text-right'}`}>
                   <span className="md:hidden font-mono text-brand-gold block mb-2">{step.number}</span>
-                  <h3 className="font-serif text-3xl md:text-4xl mb-2">{step.title}</h3>
-                  <h4 className="font-sans text-brand-gold mb-4 uppercase tracking-widest text-sm">{step.subtitle}</h4>
+                  <h3 className="font-serif text-3xl md:text-4xl mb-2">{t(`${stepKeyPrefix}.title`)}</h3>
+                  <h4 className="font-sans text-brand-gold mb-4 uppercase tracking-widest text-sm">{t(`${stepKeyPrefix}.sub`)}</h4>
                   <p className="font-sans text-brand-white/70 leading-relaxed">
-                    {step.description}
+                    {t(`${stepKeyPrefix}.desc`)}
                   </p>
                 </div>
                 <div className="hidden md:block md:w-1/2" />
