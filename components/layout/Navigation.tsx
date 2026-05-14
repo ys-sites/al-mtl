@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/lib/LanguageContext';
 
+import { Home } from 'lucide-react';
+
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang, t } = useLanguage();
@@ -19,6 +21,8 @@ export default function Navigation() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -32,13 +36,17 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span className="font-serif text-2xl font-bold tracking-wider text-brand-white">
+        <div className="flex-shrink-0 cursor-pointer flex items-center gap-3" onClick={() => scrollTo('home')}>
+          <img src="/logo_renovare.png" alt="Renovare Logo" className="h-10 w-auto rounded-sm" />
+          <span className="font-serif text-2xl font-bold tracking-wider text-brand-white hidden sm:block">
             RENOVARE<span className="text-brand-gold">.</span>
           </span>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
+          <button onClick={() => scrollTo('home')} className="flex items-center gap-2 text-sm font-sans tracking-widest-lux text-brand-white/70 hover:text-brand-gold transition-colors uppercase">
+            <Home size={16} /> HOME
+          </button>
           <button onClick={() => scrollTo('about')} className="text-sm font-sans tracking-widest-lux text-brand-white/70 hover:text-brand-gold transition-colors uppercase">
             {t('nav.about')}
           </button>

@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Brand & Socials */}
           <div className="col-span-1 flex flex-col items-start">
             <div className="flex items-center gap-3 mb-6">
-              <Hammer className="text-brand-gold" size={32} />
+              <img src="/logo_renovare.png" alt="Renovare Logo" className="h-12 w-auto rounded-sm" />
               <h3 className="font-serif text-2xl text-white font-bold tracking-wide">
                 {companyDetails.name.replace(' Kitchen Co.', '')}
               </h3>
