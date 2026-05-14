@@ -5,8 +5,8 @@ import { Instagram, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const BACKGROUND_IMAGES = [
-  "/frames/frame_0020.jpg", "/frames/frame_0030.jpg", "/frames/frame_0040.jpg", "/frames/frame_0050.jpg", 
-  "/frames/frame_0060.jpg", "/frames/frame_0070.jpg", "/frames/frame_0080.jpg", "/frames/frame_0090.jpg"
+  "/frames/ezgif-frame-030.jpg", "/frames/ezgif-frame-060.jpg", "/frames/ezgif-frame-090.jpg", "/frames/ezgif-frame-120.jpg", 
+  "/frames/ezgif-frame-150.jpg", "/frames/ezgif-frame-180.jpg", "/frames/ezgif-frame-210.jpg", "/frames/ezgif-frame-240.jpg"
 ];
 
 const VIDEOS = [
@@ -14,28 +14,28 @@ const VIDEOS = [
     id: 1,
     title: "Navy Cabinet Installation",
     videoUrl: "", // Add video URLs later
-    poster: "/frames/frame_0030.jpg",
+    poster: "/frames/ezgif-frame-060.jpg",
     igLink: "#",
   },
   {
     id: 2,
     title: "Brass Hardware Details",
     videoUrl: "",
-    poster: "/frames/frame_0050.jpg",
+    poster: "/frames/ezgif-frame-120.jpg",
     igLink: "#",
   },
   {
     id: 3,
     title: "Quartz Countertop Finish",
     videoUrl: "",
-    poster: "/frames/frame_0070.jpg",
+    poster: "/frames/ezgif-frame-180.jpg",
     igLink: "#",
   },
   {
     id: 4,
     title: "Final Kitchen Reveal",
     videoUrl: "",
-    poster: "/frames/frame_0090.jpg",
+    poster: "/frames/ezgif-frame-240.jpg",
     igLink: "#",
   }
 ];

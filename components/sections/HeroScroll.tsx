@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useImagePreloader } from '@/hooks/useImagePreloader';
 import CanvasSequence from '@/components/ui/CanvasSequence';
 
-const FRAME_COUNT = 110; // Updated to actual frame count
-const FRAME_PATH = '/frames/frame_';
+const FRAME_COUNT = 253; // Updated to actual frame count
+const FRAME_PATH = '/frames/ezgif-frame-';
 
 import { useLanguage } from '@/lib/LanguageContext';
 

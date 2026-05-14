@@ -15,7 +15,7 @@ export function useImagePreloader(frameCount: number, pathPrefix: string) {
       for (let i = startIndex; i < Math.min(startIndex + batchSize, frameCount); i++) {
         const promise = new Promise<void>((resolve) => {
           const img = new Image();
-          const paddedIndex = (i + 1).toString().padStart(4, '0');
+          const paddedIndex = (i + 1).toString().padStart(3, '0');
           
           img.onload = () => {
             if (!isCancelled) {
