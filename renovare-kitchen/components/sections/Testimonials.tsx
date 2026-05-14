@@ -37,7 +37,7 @@ export default function Testimonials() {
                 ))}
               </div>
               <p className="font-serif text-xl md:text-2xl italic leading-relaxed mb-8 text-brand-white/90">
-                "{t.quote}"
+                &quot;{t.quote}&quot;
               </p>
               <div className="mt-auto border-t border-brand-white/10 pt-6">
                 <h4 className="font-sans font-medium text-brand-white text-lg">{t.name}</h4>
