@@ -29,3 +29,10 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+/* Force hide Vercel Toolbar injected by platform */
+vercel-live, vercel-toolbar, #vercel-toolbar, [data-vercel-toolbar] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
