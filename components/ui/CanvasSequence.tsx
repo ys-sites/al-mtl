@@ -33,10 +33,9 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     canvas.height = window.innerHeight * dpr;
     ctx.scale(dpr, dpr);
     
-    // Maximize rendering quality
+    // Maximize rendering quality but avoid heavy operations
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-
+    
     // object-fit: cover math
     const img = images[index];
     const hRatio = window.innerWidth / img.width;
@@ -45,8 +44,6 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     const centerShift_x = (window.innerWidth - img.width * ratio) / 2;
     const centerShift_y = (window.innerHeight - img.height * ratio) / 2;
 
-    // Warm kitchen tone filter
-    ctx.filter = 'contrast(1.05) saturate(1.1)';
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     ctx.drawImage(
       img, 0, 0, img.width, img.height,
@@ -72,7 +69,7 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
   return (
     <div ref={containerRef} className="relative h-[500vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <canvas ref={canvasRef} className="w-full h-full block" />
+        <canvas ref={canvasRef} className="w-full h-full block contrast-[1.05] saturate-[1.1]" />
         <div className="absolute inset-0 bg-gradient-to-t 
           from-black/70 to-transparent" />
       </div>
