@@ -28,7 +28,19 @@ export default function RootLayout({
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-    return () => lenis.destroy();
+
+    // Force remove Vercel toolbar
+    const removeVercel = () => {
+      document.querySelectorAll('vercel-toolbar, vercel-live, #vercel-toolbar, [data-vercel-toolbar]').forEach(el => el.remove());
+    };
+    removeVercel();
+    const observer = new MutationObserver(removeVercel);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    return () => {
+      lenis.destroy();
+      observer.disconnect();
+    };
   }, []);
 
   return (
