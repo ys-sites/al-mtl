@@ -40,7 +40,6 @@ export default function ConsultationForm() {
           ...data,
           _subject: "New Consultation Request - Al-MTL Kitchen Co.",
           _replyto: data.email,
-          _cc: "restoredinmtl@gmail.com",
           _captcha: "false"
         })
       });
