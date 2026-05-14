@@ -7,10 +7,10 @@ import ShinyText from '@/components/ui/ShinyText';
 import BlurText from '@/components/ui/BlurText';
 
 const PORTFOLIO_IMAGES = [
-  { id: 1, src: "/house_1.png", title: "Modern Minimalist", span: "md:col-span-2 md:row-span-2" },
-  { id: 2, src: "/house_2.png", title: "Classic Brass", span: "md:col-span-1 md:row-span-1" },
-  { id: 3, src: "/house_3.png", title: "Quartz Excellence", span: "md:col-span-1 md:row-span-1" },
-  { id: 4, src: "/house_4.png", title: "Navy Accents", span: "md:col-span-2 md:row-span-1" },
+  { id: 1, src: "/1.jpg", title: "Modern Minimalist", span: "md:col-span-2 md:row-span-2" },
+  { id: 2, src: "/2.jpg", title: "Classic Brass", span: "md:col-span-1 md:row-span-1" },
+  { id: 3, src: "/3.jpg", title: "Quartz Excellence", span: "md:col-span-1 md:row-span-1" },
+  { id: 4, src: "/4.jpeg", title: "Navy Accents", span: "md:col-span-2 md:row-span-1" },
 ];
 
 export default function Portfolio() {
