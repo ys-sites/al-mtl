@@ -9,7 +9,7 @@ const FRAME_PATH = '/frames/frame_';
 
 export default function HeroScroll() {
   const { images, progress } = useImagePreloader(FRAME_COUNT, FRAME_PATH);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]

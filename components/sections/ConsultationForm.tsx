@@ -28,7 +28,7 @@ export default function ConsultationForm() {
     resolver: zodResolver(consultSchema)
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     try {
       // await fetch('/api/contact', {
       //   method: 'POST',
