@@ -40,14 +40,14 @@ export default function ConsultationForm() {
     <section id="contact" className="py-24 lg:py-32 bg-brand-offwhite border-y border-brand-navy/10 relative overflow-hidden group/main">
       {/* Background Images with Fade (Like KA-Peinture) */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-10">
-        <div className="grid grid-cols-4 md:grid-cols-6 grid-rows-3 md:grid-rows-4 h-full transform scale-110">
-          {Array.from({ length: 24 }).map((_, i) => {
+        <div className="grid grid-cols-3 md:grid-cols-4 grid-rows-4 md:grid-rows-3 h-full transform scale-110">
+          {Array.from({ length: 12 }).map((_, i) => {
             const images = ["/frames/frame_0020.webp", "/frames/frame_0050.webp", "/frames/frame_0080.webp"];
             const img = images[i % 3];
             return (
               <div key={i} className="relative group/item">
-                <img loading="lazy" decoding="async" src={img} alt="" className="w-full h-full object-cover transition-opacity duration-500 opacity-20 group-hover/main:opacity-10 will-change-[opacity]" />
-                <img loading="lazy" decoding="async" src={img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 will-change-[opacity]" />
+                <img loading="lazy" decoding="async" src={img} alt="" className="w-full h-full object-cover transition-opacity duration-500 opacity-20 group-hover/main:opacity-10" />
+                <img loading="lazy" decoding="async" src={img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
               </div>
             )
           })}

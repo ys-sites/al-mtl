@@ -52,9 +52,9 @@ export default function VideoGallery() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Reduce background complexity for mobile
-  const rowsCount = isMobile ? 5 : 4;
-  const imagesPerRow = isMobile ? 4 : BACKGROUND_IMAGES.length;
+  // Reduce background complexity drastically for mobile to prevent iOS Safari crash
+  const rowsCount = isMobile ? 3 : 4;
+  const imagesPerRow = isMobile ? 3 : BACKGROUND_IMAGES.length;
   const mobileImages = BACKGROUND_IMAGES.slice(0, imagesPerRow);
 
   const nextSlide = () => {
@@ -68,12 +68,12 @@ export default function VideoGallery() {
   return (
     <div className="relative w-full min-h-[70vh] overflow-hidden flex items-center justify-center bg-brand-bg py-20">
       {/* Background Grid - Animated Rows */}
-      <div className="absolute inset-0 z-0 flex flex-col gap-2 opacity-20 will-change-transform overflow-hidden">
+      <div className="absolute inset-0 z-0 flex flex-col gap-2 opacity-20 overflow-hidden">
         {/* Animated Rows */}
         {[...Array(rowsCount)].map((_, rowIndex) => (
           <motion.div 
             key={rowIndex}
-            className="flex gap-2 will-change-transform"
+            className="flex gap-2"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ 
               duration: 60 + (rowIndex * 10), 
@@ -83,7 +83,7 @@ export default function VideoGallery() {
           >
             {[...(isMobile ? mobileImages : BACKGROUND_IMAGES), ...(isMobile ? mobileImages : BACKGROUND_IMAGES)].map((img, i) => (
               <div key={i} className="w-48 h-36 md:w-64 md:h-48 rounded-lg overflow-hidden shrink-0">
-                <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+                <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" decoding="async" />
               </div>
             ))}
           </motion.div>
