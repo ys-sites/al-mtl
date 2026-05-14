@@ -30,7 +30,7 @@ export default function ConsultationForm() {
   const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     setStatus('loading');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/restoredinmtl@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/sharafath2001@hotmail.com", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
