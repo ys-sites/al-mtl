@@ -8,30 +8,22 @@ export function useImagePreloader(frameCount: number, pathPrefix: string) {
     const loadedImages: HTMLImageElement[] = [];
     let loadCount = 0;
     
-    // On mobile, load every 4th frame for a balance of RAM safety and smooth scrubbing
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const step = isMobile ? 4 : 1;
-    const actualFrameCount = Math.floor(frameCount / step);
-
-    for (let i = 1; i <= frameCount; i += step) {
+    for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
       const paddedIndex = i.toString().padStart(4, '0');
+      
+      img.onload = () => {
+        loadCount++;
+        setLoaded(Math.round((loadCount / frameCount) * 100));
+      };
+      
+      img.onerror = () => {
+        loadCount++;
+        setLoaded(Math.round((loadCount / frameCount) * 100));
+      };
+
       img.src = `${pathPrefix}${paddedIndex}.jpg`;
-      
-      img.decode().then(() => {
-        loadCount++;
-        setLoaded(Math.round((loadCount / actualFrameCount) * 100));
-      }).catch((e) => {
-        loadCount++;
-        setLoaded(Math.round((loadCount / actualFrameCount) * 100));
-      });
-      
-      // Pad missing frames with the same image to keep indices aligned
-      for (let j = 0; j < step; j++) {
-        if (i + j <= frameCount) {
-          loadedImages[i + j - 1] = img;
-        }
-      }
+      loadedImages.push(img);
     }
     setImages(loadedImages);
   }, [frameCount, pathPrefix]);
