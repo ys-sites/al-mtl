@@ -2,20 +2,24 @@
 import { motion } from 'framer-motion';
 import { testimonials } from '@/lib/content';
 import { Quote } from 'lucide-react';
+import ShinyText from '@/components/ui/ShinyText';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+
   return (
-    <section className="py-32 px-6 bg-brand-dark relative z-10 border-y border-brand-white/5">
+    <section className="py-32 px-6 bg-brand-offwhite relative z-10 border-y border-brand-navy/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-5xl md:text-6xl text-brand-white"
-          >
-            Client <span className="text-gradient-gold">Stories</span>
-          </motion.h2>
+          <h2 className="font-serif text-5xl md:text-6xl mb-6">
+            <ShinyText
+              text={t('stories.title')}
+              color="#0F172A"
+              shineColor="#C9A84C"
+              speed={3}
+            />
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -26,9 +30,9 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2, duration: 0.6 }}
-              className="glass-panel p-10 rounded-sm relative"
+              className="bg-white/50 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.05)] p-10 rounded-sm relative border border-brand-gold/30 hover:bg-white/90 transition-all duration-500"
             >
-              <Quote className="absolute top-8 right-8 w-12 h-12 text-brand-gold/10" aria-hidden="true" />
+              <Quote className="absolute top-8 right-8 w-12 h-12 text-brand-gold/20" aria-hidden="true" />
               <div className="flex gap-1 mb-6" aria-label={`Rating: ${t.rating} out of 5 stars`}>
                 {[...Array(t.rating)].map((_, i) => (
                   <svg key={i} className="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
@@ -36,11 +40,11 @@ export default function Testimonials() {
                   </svg>
                 ))}
               </div>
-              <p className="font-serif text-xl md:text-2xl italic leading-relaxed mb-8 text-brand-white/90">
+              <p className="font-serif text-xl md:text-2xl italic leading-relaxed mb-8 text-brand-navy/90">
                 &quot;{t.quote}&quot;
               </p>
-              <div className="mt-auto border-t border-brand-white/10 pt-6">
-                <h4 className="font-sans font-medium text-brand-white text-lg">{t.name}</h4>
+              <div className="mt-auto border-t border-brand-navy/10 pt-6">
+                <h4 className="font-sans font-medium text-brand-navy text-lg">{t.name}</h4>
                 <p className="font-mono text-brand-gold text-xs tracking-widest mt-1 uppercase">
                   {t.location} • {t.projectType}
                 </p>

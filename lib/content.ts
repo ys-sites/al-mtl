@@ -5,7 +5,7 @@ export const aboutContent = {
   description2: "For more than 20 years, we have approached each of our projects with the same spirit. Our design and management skills have delivered turnkey projects while ensuring a reliable execution every time. Our team of kitchen designers will ensure that your dream of a custom-made kitchen space becomes a reality.",
   features: [
     "Personalized Service",
-    "High-End 3D Presentation",
+    "Custom Design & Planning",
     "Professional Installation",
     "Renowned After-Sales Support"
   ]
@@ -27,7 +27,7 @@ export const testimonials = [
     location: "Outremont",
     projectType: "Full Renovation",
     rating: 5,
-    quote: "The 3D render blew us away before they even started. The final result was even better. Flawless execution.",
+    quote: "The custom design blew us away before they even started. The final result was even better. Flawless execution.",
     photo: "/testimonials/marc.jpg"
   },
   {
@@ -64,9 +64,9 @@ export const steps = [
   },
   {
     number: "02",
-    title: "Concept & 3D Presentation",
+    title: "Custom Design & Planning",
     subtitle: "See your ideas in high definition",
-    description: "We outline the project and guide you towards a functional and one-of-a-kind concept. Each project is accompanied by a high-end 3D presentation so you can see your colors and finishes before we begin."
+    description: "We outline the project and guide you towards a functional and one-of-a-kind concept. We ensure you can visualize your colors and finishes before we begin."
   },
   {
     number: "03",
