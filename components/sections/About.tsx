@@ -7,7 +7,7 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-32 px-6 bg-brand-bg relative z-10">
+    <section className="py-32 px-6 bg-brand-offwhite relative z-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
         
         {/* Left Side: Text Content */}
@@ -21,16 +21,16 @@ export default function About() {
           <span className="font-mono text-brand-gold tracking-widest-lux text-sm uppercase">
             {t('nav.about')}
           </span>
-          <h2 className="font-serif text-5xl md:text-6xl text-brand-white leading-tight">
+          <h2 className="font-serif text-5xl md:text-6xl text-brand-navy leading-tight">
             {aboutContent.title}
           </h2>
-          <h3 className="font-sans text-brand-white/80 text-xl font-medium">
+          <h3 className="font-sans text-brand-navy/80 text-xl font-medium">
             {aboutContent.subtitle}
           </h3>
-          <p className="font-sans text-brand-white/60 leading-relaxed text-lg">
+          <p className="font-sans text-brand-navy/70 leading-relaxed text-lg">
             {aboutContent.description1}
           </p>
-          <p className="font-sans text-brand-white/60 leading-relaxed text-lg">
+          <p className="font-sans text-brand-navy/70 leading-relaxed text-lg">
             {aboutContent.description2}
           </p>
         </motion.div>
@@ -46,7 +46,7 @@ export default function About() {
           {aboutContent.features.map((feature, index) => (
             <div 
               key={index}
-              className="glass-panel p-8 rounded-sm border border-brand-gold/20 flex items-center justify-center text-center hover:bg-brand-navy/20 transition-colors duration-500"
+              className="bg-brand-white/50 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.05)] p-8 rounded-sm border border-brand-gold/30 flex items-center justify-center text-center hover:bg-brand-white/90 hover:shadow-[0_4px_30px_rgba(201,168,76,0.15)] transition-all duration-500"
             >
               <h4 className="font-serif text-2xl text-brand-gold">{feature}</h4>
             </div>

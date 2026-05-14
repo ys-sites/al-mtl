@@ -11,6 +11,7 @@ const config: Config = {
           gold: '#C9A84C',
           lightgold: '#E8D5A3',
           white: '#FEFEFE',
+          offwhite: '#F0F4F8', // Offwhite with blue tone
           dark: '#1A1A1A',
         }
       },
