@@ -11,10 +11,6 @@ const PORTFOLIO_IMAGES = [
   { id: 2, src: "/frames/ezgif-frame-050.jpg", title: "Classic Brass", span: "md:col-span-1 md:row-span-1" },
   { id: 3, src: "/frames/ezgif-frame-080.jpg", title: "Quartz Excellence", span: "md:col-span-1 md:row-span-1" },
   { id: 4, src: "/frames/ezgif-frame-110.jpg", title: "Navy Accents", span: "md:col-span-2 md:row-span-1" },
-  { id: 5, src: "/frames/ezgif-frame-140.jpg", title: "Open Concept", span: "md:col-span-1 md:row-span-2" },
-  { id: 6, src: "/frames/ezgif-frame-170.jpg", title: "Custom Island", span: "md:col-span-1 md:row-span-1" },
-  { id: 7, src: "/frames/ezgif-frame-200.jpg", title: "Lighting Details", span: "md:col-span-1 md:row-span-1" },
-  { id: 8, src: "/frames/ezgif-frame-230.jpg", title: "Final Polish", span: "md:col-span-2 md:row-span-1" },
 ];
 
 export default function Portfolio() {
