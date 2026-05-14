@@ -37,20 +37,29 @@ export default function ConsultationForm() {
             'Accept': 'application/json'
         },
         body: JSON.stringify({
-          ...data,
           _subject: "New Consultation Request - Al-MTL Kitchen Co.",
           _replyto: data.email,
-          _captcha: "false"
+          _captcha: "false",
+          _template: "table",
+          "First Name": data.firstName,
+          "Last Name": data.lastName,
+          "City": data.city,
+          "Email": data.email,
+          "Phone": data.phone,
+          "Interested In": data.interestedIn,
         })
       });
       
       const result = await response.json();
       console.log("FormSubmit response:", result);
 
-      if (response.ok && result.success === "true") {
+      if (result.success === 'true' || result.success === true) {
         setStatus('success');
       } else {
         console.error("FormSubmit error:", result.message || "Unknown error");
+        if (result.message?.toLowerCase().includes('verif') || result.message?.toLowerCase().includes('activ')) {
+          console.warn("FormSubmit activation required — check sharafath2001@hotmail.com inbox.");
+        }
         throw new Error(result.message || 'Failed to submit form');
       }
     } catch (error) {
