@@ -75,19 +75,19 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 text-sm">Contact</h4>
             <ul className="space-y-5">
               <li className="flex items-center gap-3">
-                <Phone size={16} className="text-[#dc2743]" />
+                <Phone size={16} className="text-brand-gold" />
                 <a href={`tel:${companyDetails.phone}`} className="text-white/60 hover:text-white transition-colors text-sm">
                   {companyDetails.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={16} className="text-[#dc2743]" />
+                <Mail size={16} className="text-brand-gold" />
                 <a href={`mailto:${companyDetails.email}`} className="text-white/60 hover:text-white transition-colors text-sm">
                   {companyDetails.email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-[#dc2743] mt-0.5" shrink-0 />
+                <MapPin size={16} className="text-brand-gold mt-0.5" shrink-0 />
                 <span className="text-white/60 text-sm">
                   {companyDetails.address}
                 </span>

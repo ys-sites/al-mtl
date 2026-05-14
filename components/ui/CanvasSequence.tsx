@@ -91,7 +91,7 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
         <canvas ref={canvasRef} className="w-full h-full block contrast-[1.05] saturate-[1.1]" />
         <div className="absolute inset-0 bg-gradient-to-t 
-          from-black/70 to-transparent" />
+          from-black/40 to-transparent" />
       </div>
     </div>
   );
