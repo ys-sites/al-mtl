@@ -10,7 +10,7 @@ const Testimonials = dynamic(() => import('@/components/sections/Testimonials'),
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen bg-brand-bg relative flex flex-col">
+    <main className="w-full min-h-[100dvh] bg-brand-bg relative flex flex-col">
       <HeroScroll />
       <div id="about"><About /></div>
       <div id="process"><ProcessSteps /></div>

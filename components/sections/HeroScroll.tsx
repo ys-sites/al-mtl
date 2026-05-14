@@ -30,9 +30,10 @@ export default function HeroScroll() {
   const text4Opacity = useTransform(scrollYProgress, [0.75, 0.85, 1], [0, 1, 1]);
   const text4Y = useTransform(scrollYProgress, [0.75, 0.85, 1], [50, 0, 0]);
 
-  if (progress < 100) {
+  // Show the site quickly after the first few frames (approx 5%) load
+  if (progress < 4) {
     return (
-      <div className="h-screen bg-brand-bg flex flex-col 
+      <div className="h-[100dvh] bg-brand-bg flex flex-col 
         items-center justify-center gap-4">
         <p className="font-mono text-brand-gold tracking-widest-lux text-sm">
           {t('hero.loading')}
@@ -53,7 +54,7 @@ export default function HeroScroll() {
       <CanvasSequence images={images} frameCount={FRAME_COUNT} />
 
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="sticky top-0 h-screen flex items-center justify-start">
+        <div className="sticky top-0 h-[100dvh] flex items-center justify-start">
 
           {/* Phase 1: 0-20% */}
           <motion.div style={{ opacity: text1Opacity, y: text1Y }}
