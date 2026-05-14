@@ -89,3 +89,36 @@ export const companyDetails = {
   email: "[EMAIL FROM REFERENCE.MD]",
   showroomHours: "[HOURS FROM REFERENCE.MD]"
 };
+
+export const steps = [
+  {
+    number: "01",
+    title: "Consultation",
+    subtitle: "We listen to your vision",
+    description: "In-home or virtual meeting to understand your style, needs, and goals."
+  },
+  {
+    number: "02",
+    title: "Design & 3D Render",
+    subtitle: "See it before we build it",
+    description: "Photorealistic 3D renders of your new kitchen before a single cabinet is touched."
+  },
+  {
+    number: "03",
+    title: "Material Selection",
+    subtitle: "Brass, quartz, and oak — curated",
+    description: "Visit our showroom to select your exact cabinet finish, hardware, countertop, and flooring."
+  },
+  {
+    number: "04",
+    title: "Installation",
+    subtitle: "Precision craftsmanship",
+    description: "Our certified team installs your kitchen with military precision. Timeline: 2–4 weeks."
+  },
+  {
+    number: "05",
+    title: "Final Reveal",
+    subtitle: "Your kitchen, perfected",
+    description: "Walk into your transformed space. We do not leave until every detail is flawless."
+  }
+];
