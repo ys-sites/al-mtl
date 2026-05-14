@@ -55,8 +55,14 @@ export default function CanvasSequence({ images, frameCount }: CanvasSequencePro
     );
   };
 
+  const lastRendered = useRef(-1);
+
   useMotionValueEvent(frameIndex, "change", (latest) => {
-    requestAnimationFrame(() => renderFrame(Math.floor(latest)));
+    const nextFrame = Math.floor(latest);
+    if (nextFrame !== lastRendered.current) {
+      lastRendered.current = nextFrame;
+      requestAnimationFrame(() => renderFrame(nextFrame));
+    }
   });
 
   useEffect(() => {

@@ -42,7 +42,7 @@ export default function ConsultationForm() {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-10">
         <div className="grid grid-cols-3 md:grid-cols-4 grid-rows-4 md:grid-rows-3 h-full transform scale-110">
           {Array.from({ length: 12 }).map((_, i) => {
-            const images = ["/frames/frame_0020.webp", "/frames/frame_0050.webp", "/frames/frame_0080.webp"];
+            const images = ["/frames/frame_0020.jpg", "/frames/frame_0050.jpg", "/frames/frame_0080.jpg"];
             const img = images[i % 3];
             return (
               <div key={i} className="relative group/item">

@@ -8,9 +8,9 @@ export function useImagePreloader(frameCount: number, pathPrefix: string) {
     const loadedImages: HTMLImageElement[] = [];
     let loadCount = 0;
     
-    // On mobile, load every 2nd frame to save RAM (iOS Safari limits)
-    const isMobile = window.innerWidth < 768;
-    const step = isMobile ? 2 : 1;
+    // On mobile, load every 10th frame to save RAM (iOS Safari limits)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const step = isMobile ? 10 : 1;
     const actualFrameCount = Math.floor(frameCount / step);
 
     for (let i = 1; i <= frameCount; i += step) {
