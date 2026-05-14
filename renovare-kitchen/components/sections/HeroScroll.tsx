@@ -86,7 +86,8 @@ export default function HeroScroll() {
             </p>
             <button className="border border-brand-gold text-brand-gold
               font-mono tracking-widest-lux px-12 py-4
-              hover:bg-brand-navy hover:text-brand-gold transition-all duration-500 pointer-events-auto">
+              hover:bg-brand-navy hover:text-brand-gold transition-all duration-500 pointer-events-auto"
+              aria-label="Get a free quote for your kitchen renovation">
               GET A FREE QUOTE
             </button>
           </motion.div>
