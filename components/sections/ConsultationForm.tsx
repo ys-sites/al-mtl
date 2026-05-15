@@ -188,6 +188,7 @@ export default function ConsultationForm() {
                   <option>{t('opt.cabinets')}</option>
                   <option>{t('opt.countertops')}</option>
                   <option>{t('opt.island')}</option>
+                  <option>{t('opt.custom')}</option>
                 </select>
                 {errors.interestedIn && <p className="text-red-500 text-xs mt-1">{errors.interestedIn.message as string}</p>}
               </div>

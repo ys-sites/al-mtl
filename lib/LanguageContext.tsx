@@ -98,6 +98,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'opt.cabinets': 'Custom Kitchen Cabinets',
       'opt.countertops': 'Kitchen Countertops',
       'opt.island': 'Kitchen Island Installation',
+      'opt.custom': 'Custom Project',
       'stories.title': 'Client Stories'
     },
     fr: {
@@ -164,6 +165,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       'opt.cabinets': 'Armoires de Cuisine sur Mesure',
       'opt.countertops': 'Comptoirs de Cuisine',
       'opt.island': 'Installation d\'Îlot de Cuisine',
+      'opt.custom': 'Projet Personnalisé',
       'stories.title': 'Témoignages de Clients'
     }
   };
