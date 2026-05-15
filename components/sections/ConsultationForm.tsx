@@ -30,37 +30,29 @@ export default function ConsultationForm() {
   const onSubmit = async (data: z.infer<typeof consultSchema>) => {
     setStatus('loading');
     try {
-      const response = await fetch("https://formsubmit.co/ajax/sharafath2001@hotmail.com", {
-        method: "POST",
-        headers: { 
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/o7aUwpKbtkP4AOP0pEjC/webhook-trigger/d5f1dfb6-91ff-4506-a644-32508a1bc96b",
+        {
+          method: "POST",
+          headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: "New Consultation Request - Al-MTL Kitchen Co.",
-          _replyto: data.email,
-          _captcha: "false",
-          _template: "table",
-          "First Name": data.firstName,
-          "Last Name": data.lastName,
-          "City": data.city,
-          "Email": data.email,
-          "Phone": data.phone,
-          "Interested In": data.interestedIn,
-        })
-      });
-      
-      const result = await response.json();
-      console.log("FormSubmit response:", result);
+          },
+          body: JSON.stringify({
+            firstName: data.firstName,
+            lastName: data.lastName,
+            city: data.city,
+            email: data.email,
+            phone: data.phone,
+            interestedIn: data.interestedIn,
+            source: "Al-MTL Website - Consultation Form",
+          }),
+        }
+      );
 
-      if (result.success === 'true' || result.success === true) {
+      if (response.ok) {
         setStatus('success');
       } else {
-        console.error("FormSubmit error:", result.message || "Unknown error");
-        if (result.message?.toLowerCase().includes('verif') || result.message?.toLowerCase().includes('activ')) {
-          console.warn("FormSubmit activation required — check sharafath2001@hotmail.com inbox.");
-        }
-        throw new Error(result.message || 'Failed to submit form');
+        throw new Error(`Webhook error: ${response.status}`);
       }
     } catch (error) {
       console.error("Submission failed:", error);
