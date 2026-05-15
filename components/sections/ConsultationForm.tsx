@@ -133,24 +133,25 @@ export default function ConsultationForm() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10 font-sans">
-              <div>
-                <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.fullname')}</label>
-                <input 
-                  {...register("fullName")}
-                  className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30" 
-                  placeholder={t('contact.fullname').replace(' *', '')} 
-                />
-                {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message as string}</p>}
-              </div>
-              
-              <div>
-                <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.city')}</label>
-                <input
-                  {...register("city")}
-                  className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30"
-                  placeholder="Montreal"
-                />
-                {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city.message as string}</p>}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.fullname')}</label>
+                  <input 
+                    {...register("fullName")}
+                    className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30" 
+                    placeholder={t('contact.fullname').replace(' *', '')} 
+                  />
+                  {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message as string}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-brand-navy">{t('contact.city')}</label>
+                  <input
+                    {...register("city")}
+                    className="w-full px-4 py-3 rounded-xl border border-brand-navy/10 focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all bg-white text-brand-navy placeholder:text-brand-navy/30"
+                    placeholder="Montreal"
+                  />
+                  {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city.message as string}</p>}
+                </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
