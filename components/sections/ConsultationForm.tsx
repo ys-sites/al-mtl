@@ -31,7 +31,7 @@ export default function ConsultationForm() {
     setStatus('loading');
     try {
       const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/o7aUwpKbtkP4AOP0pEjC/webhook-trigger/d5f1dfb6-91ff-4506-a644-32508a1bc96b",
+        "https://services.leadconnectorhq.com/hooks/o7aUwpKbtkP4AOP0pEjC/webhook-trigger/2e506fa0-e6ba-47bf-8513-780e24ab4f97",
         {
           method: "POST",
           headers: {
